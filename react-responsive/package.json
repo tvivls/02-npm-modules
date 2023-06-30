@@ -1,5 +1,5 @@
 {
-  "name": "react-responsive",
+  "name": "@tvivls/react-responsive",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.esm.js",
   "types": "dist/esm/index.d.js",
