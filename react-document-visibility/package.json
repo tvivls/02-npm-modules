@@ -1,5 +1,5 @@
 {
-  "name": "react-document-visibility",
+  "name": "@tvivls/react-document-visibility",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.esm.js",
   "types": "dist/esm/index.d.js",
@@ -13,6 +13,9 @@
     "dist",
     "src"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build:dev": "NODE_ENV=development rollup -c",
     "build": "rollup -c",
