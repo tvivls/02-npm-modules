@@ -5,15 +5,19 @@
   "types": "dist/esm/index.d.js",
   "source": "src/index.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "build:dev": "NODE_ENV=development rollup -c",
     "build": "rollup -c",
-    "build:watch": "rollup -c -w"
+    "build:watch": "rollup -c -w",
+    "pub": "npm run build && npm version patch && npm publish --access public"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "peerDependencies": {
+    "react-dom": "^18.2.0",
     "react": "^18.2.0"
   },
   "version": "1.0.0",
