@@ -7,30 +7,22 @@ import { terser } from 'rollup-plugin-terser';
 const isDev = process.env.NODE_ENV === 'development';
 
 const commonPlugins = [
-    resolve(),
-    commonjs(),
-    typescript(),
-    babel({
-        exclude: 'node_modules/**',
-        presets: [
-            '@babel/preset-env',
-            '@babel/preset-typescript',
-            '@babel/preset-react',
-        ],
-    }),
+  resolve(),
+  commonjs(),
+  typescript(),
+  babel({
+    exclude: 'node_modules/**',
+    presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
+  }),
 ];
 
-const cjsPlugins = [
-    ...commonPlugins,
-];
+const cjsPlugins = [...commonPlugins];
 
-const esmPlugins = [
-    ...commonPlugins,
-];
+const esmPlugins = [...commonPlugins];
 
 if (!isDev) {
-    cjsPlugins.push(terser());
-    esmPlugins.push(terser());
+  cjsPlugins.push(terser());
+  esmPlugins.push(terser());
 }
 
 /**
@@ -38,17 +30,17 @@ if (!isDev) {
  * @type {import('rollup').RollupOptions}
  */
 const cjsConfig = {
-    input: 'src/index.ts',
-    output: [
-        {
-            file: 'dist/cjs/index.js',
-            format: 'cjs',
-            exports: 'named',
-            sourcemap: true,
-        },
-    ],
-    external: ['react'],
-    plugins: cjsPlugins,
+  input: 'src/index.ts',
+  output: [
+    {
+      file: 'dist/cjs/index.js',
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: true,
+    },
+  ],
+  external: ['react'],
+  plugins: cjsPlugins,
 };
 
 /**
@@ -56,17 +48,17 @@ const cjsConfig = {
  * @type {import('rollup').RollupOptions}
  */
 const esmConfig = {
-    input: 'src/index.ts',
-    output: [
-        {
-            file: 'dist/esm/index.esm.js',
-            format: 'esm',
-            exports: 'named',
-            sourcemap: true,
-        },
-    ],
-    external: ['react'],
-    plugins: esmPlugins,
+  input: 'src/index.ts',
+  output: [
+    {
+      file: 'dist/esm/index.esm.js',
+      format: 'esm',
+      exports: 'named',
+      sourcemap: true,
+    },
+  ],
+  external: ['react'],
+  plugins: esmPlugins,
 };
 
 export default [cjsConfig, esmConfig];
