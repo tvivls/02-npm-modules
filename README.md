@@ -1,7 +1,5 @@
 # 02-npm-modules
 
----
-
 ### Install
 
 ```
