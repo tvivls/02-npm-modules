@@ -10,9 +10,7 @@ export type QueryProps = { orientation?: string;
     children?: ReactNode | ((matches: boolean) => ReactNode);
 };
 
-const MediaQuery: FC<QueryProps> = (
-    {children, ...props}
-) => {
+const MediaQuery: FC<QueryProps> = ({children, ...props}) => {
     const [matches, setMatches] = useState(false);
     useEffect(() => {
         const query = buildQuery();
@@ -33,7 +31,7 @@ const MediaQuery: FC<QueryProps> = (
             if (typeof value === 'number' || typeof value === 'string') {
                 const splitString: string[] = /(?=[A-Z])/g[Symbol.split](key);
                 const formattedKey: string = splitString.join('-').toLowerCase();
-                const queryString: string = `(${formattedKey}: ${value}`;
+                const queryString = `(${formattedKey}: ${value}`;
                 if (key.includes('orientation')) {
                     mediaQuery.push(`${queryString})`);
                 } else if (key.includes('Resolution')) {
