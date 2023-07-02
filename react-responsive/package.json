@@ -17,10 +17,10 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react-dom": "^18.2.0",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "",
   "keywords": [],
   "author": "",
@@ -33,7 +33,7 @@
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@types/react": "^18.2.14",
-    "react": "^18.2.0",
+    "@types/react-dom": "^18.2.6",
     "rollup": "^2.79.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-ignore": "^1.0.10",

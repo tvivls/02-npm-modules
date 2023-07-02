@@ -4,14 +4,13 @@
   "module": "dist/esm/index.esm.js",
   "types": "dist/esm/index.d.js",
   "source": "src/index.ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -19,7 +18,8 @@
   "scripts": {
     "build:dev": "NODE_ENV=development rollup -c",
     "build": "rollup -c",
-    "build:watch": "rollup -c -w"
+    "build:watch": "rollup -c -w",
+    "pub": "npm run build && npm version patch && npm publish --access public"
   },
   "peerDependencies": {
     "react": "^18.2.0"
