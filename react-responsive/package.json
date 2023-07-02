@@ -11,7 +11,9 @@
     "build:dev": "NODE_ENV=development rollup -c",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "pub": "npm run build && npm version patch && npm publish --access public"
+    "pub": "npm run build && npm version patch && npm publish --access public",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "publishConfig": {
     "access": "public"
@@ -34,6 +36,17 @@
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "@web-bee-ru/eslint-plugin": "^0.6.3",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-node": "^0.3.7",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-unicorn": "^47.0.0",
+    "prettier": "^2.8.8",
     "rollup": "^2.79.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-ignore": "^1.0.10",
