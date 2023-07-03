@@ -2,8 +2,8 @@ import React, { FC, Fragment, ReactNode, useEffect, useState } from 'react';
 
 export type QueryProps = {
   orientation?: string;
-  minResolution?: string | number;
-  maxResolution?: string;
+  minResolution?: `${number}dppx` | number;
+  maxResolution?: `${number}dppx` | number;
   minWidth?: number;
   maxWidth?: number;
   minHeight?: number;
