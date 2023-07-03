@@ -1,4 +1,4 @@
-import React, { FC, Fragment, ReactNode, useEffect, useState } from 'react';
+import React, { FC, ReactNode, useEffect, useState } from 'react';
 
 export type QueryProps = {
   orientation?: string;
@@ -13,6 +13,7 @@ export type QueryProps = {
 
 const MediaQuery: FC<QueryProps> = ({ children, ...props }) => {
   const [matches, setMatches] = useState(false);
+
   useEffect(() => {
     const query = buildQuery();
     const queryList = window.matchMedia(query);
@@ -37,6 +38,7 @@ const MediaQuery: FC<QueryProps> = ({ children, ...props }) => {
     });
     return mediaQuery.join(' and ');
   };
+
   return (
     <>
       {typeof children === 'function'
