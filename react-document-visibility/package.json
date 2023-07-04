@@ -4,7 +4,7 @@
   "module": "dist/esm/index.esm.js",
   "types": "dist/esm/index.d.js",
   "source": "src/index.ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [],
   "author": "",
@@ -24,7 +24,7 @@
     "lint:fix": "eslint --fix ."
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
