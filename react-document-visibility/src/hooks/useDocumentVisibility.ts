@@ -1,22 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const useDocumentVisibility = () => {
-  const [visible, setVisible] = useState<boolean>(document.visibilityState === 'visible');
-  const [count, setCount] = useState(0);
-  const callbackArray = useRef<((visibility: boolean) => void)[]>([]);
+export type CallbackType = (visibility: boolean) => void;
 
-  const onVisibilityChange = (callback: (visibility: boolean) => void): void => {
+export const useDocumentVisibility = () => {
+  const documentVisibility = (): boolean => document.visibilityState === 'visible';
+  const [visible, setVisible] = useState<boolean>(documentVisibility);
+  const [count, setCount] = useState(0);
+  const callbackArray = useRef<CallbackType[]>([]);
+
+  const onVisibilityChange = (callback: CallbackType): void => {
     callbackArray.current.push(callback);
   };
 
   useEffect(() => {
     const handleVisibility = (): void => {
-      callbackArray.current.forEach((currentCallback) => currentCallback(document.visibilityState === 'visible'));
-      if (document.visibilityState === 'hidden') {
+      callbackArray.current.forEach((currentCallback) => currentCallback(documentVisibility()));
+      if (documentVisibility()) {
+        setVisible(true);
+      } else {
         setCount((prevState) => prevState + 1);
         setVisible(false);
-      } else {
-        setVisible(true);
       }
     };
 
