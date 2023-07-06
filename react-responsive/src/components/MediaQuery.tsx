@@ -1,10 +1,12 @@
 import { ReactNode } from 'react';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
+export type ResolutionType = `${number}dppx` | number;
+
 export type QueryProps = {
   orientation?: string;
-  minResolution?: `${number}dppx` | number;
-  maxResolution?: `${number}dppx` | number;
+  minResolution?: ResolutionType;
+  maxResolution?: ResolutionType;
   minWidth?: number;
   maxWidth?: number;
   minHeight?: number;
