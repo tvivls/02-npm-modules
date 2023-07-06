@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
 export type QueryProps = {
@@ -12,7 +12,7 @@ export type QueryProps = {
   children?: ReactNode | ((matches: boolean) => ReactNode);
 };
 
-const MediaQuery: FC<QueryProps> = ({ children, ...props }) => {
+const MediaQuery = ({ children, ...props }: QueryProps) => {
   const mediaQuery: string[] = Object.entries(props).map(([key, value]) => {
     const formattedKey: string = key.replace(/([A-Z])/g, '-$1').toLowerCase();
     const queryString = `(${formattedKey}: ${value}`;
