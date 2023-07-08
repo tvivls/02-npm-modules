@@ -4,7 +4,7 @@
   "module": "dist/esm/index.esm.js",
   "types": "dist/esm/index.d.js",
   "source": "src/index.ts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [],
   "author": "",
