@@ -6,8 +6,8 @@ export type QueryType = {
 
 export const useMediaQuery = ({ query }: QueryType, isSSR = false) => {
   const [matches, setMatches] = useState(false);
-  if (!isSSR) {
-    useEffect(() => {
+  useEffect(() => {
+    if (!isSSR) {
       const queryList = window.matchMedia(query);
       const handleMediaQuery = (event: MediaQueryListEvent) => {
         setMatches(event.matches);
@@ -17,8 +17,8 @@ export const useMediaQuery = ({ query }: QueryType, isSSR = false) => {
       return () => {
         queryList.removeEventListener('change', handleMediaQuery);
       };
-    }, [query]);
-  }
+    } else throw new Error('Медиа-запрос не может быть вполнен');
+  }, [query]);
 
   return matches;
 };
