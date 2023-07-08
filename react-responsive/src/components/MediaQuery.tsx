@@ -23,6 +23,7 @@ const getQueryString = (key: string, value: number | string) => {
 };
 
 const MediaQuery = ({ children, ...props }: QueryProps) => {
+  if (Object.keys(props).length === 0) throw new Error('Необходимо указать хотя бы один prop!');
   const mediaQuery = Object.entries(props)
     .map(([key, value]) => getQueryString(key, value))
     .join(' and ');
