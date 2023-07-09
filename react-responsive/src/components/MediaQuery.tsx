@@ -22,14 +22,25 @@ const getQueryString = (key: string, value: number | string) => {
   else return `${queryString}px)`;
 };
 
-const MediaQuery = ({ children, ...props }: QueryProps) => {
+export const buildMediaQuery = (props: Omit<QueryProps, 'children'>): string => {
   if (Object.keys(props).length === 0) throw new Error('Необходимо указать хотя бы один prop!');
-  const mediaQuery = Object.entries(props)
+  return Object.entries(props)
     .map(([key, value]) => getQueryString(key, value))
     .join(' and ');
-  const query = useMediaQuery({ query: mediaQuery });
+};
 
-  return <>{typeof children === 'function' ? children(query) : query && <>{children}</>}</>;
+const MediaQuery = ({ children, ...props }: QueryProps) => {
+  const mediaQueryMatch = useMediaQuery({
+    query: buildMediaQuery(props),
+  });
+
+  return (
+    <>
+      {typeof children === 'function'
+        ? mediaQueryMatch && children(mediaQueryMatch)
+        : mediaQueryMatch && <>{children}</>}
+    </>
+  );
 };
 
 export default MediaQuery;
